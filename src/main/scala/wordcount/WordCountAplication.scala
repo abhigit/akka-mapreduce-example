@@ -15,7 +15,7 @@ import scala.collection.mutable.ArrayBuffer
 import scala.collection.immutable.Map
 
 // a sealed marker trait for messages used in the application
-sealed trait Message  
+sealed trait Message
 
 // a message for holding a word and its frequency
 // master actor will use it to activate mapper actor
@@ -37,13 +37,13 @@ case class GetResult extends Message
 object WordCountApplication extends App {
         val sys = ActorSystem("WordCount")
         val master = sys.actorOf(Props[Master], name = "master")
-        implicit val timeout = Timeout(5 seconds) 
+        implicit val timeout = Timeout(5 seconds)
 
-        master ! "The quick brown fox tried to jump over the lazy dog and fell on the dog"
+        master ! "scala is interesting!"
 
-        master ! "Dog is man's best friend"
+        master ! "akka with scala is fun!"
 
-        master ! "Dog and Fox belong to the same family"
+        master ! "I understood Actors with akka"
 
 
        Thread.sleep(500)
